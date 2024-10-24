@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import unocss from "@unocss/eslint-config/flat";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
@@ -25,4 +26,5 @@ export default tseslint.config(
       ],
     },
   },
+  unocss,
 );

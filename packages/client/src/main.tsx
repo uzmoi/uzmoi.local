@@ -3,6 +3,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { routeTree } from "./routeTree.gen";
 
+import "virtual:uno.css";
+
 // Set up a Router instance
 const router = createRouter({
   routeTree,
