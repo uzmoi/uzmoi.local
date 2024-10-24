@@ -13,11 +13,56 @@
     "enabled": true
   },
   "linter": {
-    "enabled": false
+    "enabled": true,
+    "ignore": ["*.d.ts"],
+    "rules": {
+      "all": true,
+      "correctness": {
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off",
+        "noReExportAll": "off"
+      },
+      "style": {
+        "noNamespaceImport": "off",
+        "noNonNullAssertion": "off",
+        "noParameterProperties": "off",
+        "useBlockStatements": "off"
+      },
+      "suspicious": {
+        "noReactSpecificProps": "off"
+      }
+    }
   },
   "json": {
     "parser": {
       "allowComments": true
     }
-  }
+  },
+  "javascript": {
+    "globals": ["Bun"],
+    "formatter": {
+      "arrowParentheses": "asNeeded"
+    }
+  },
+  "overrides": [
+    {
+      "include": ["*.test-d.ts"],
+      "linter": {
+        "rules": {
+          "style": { "useFilenamingConvention": "off" }
+        }
+      }
+    },
+    {
+      "include": ["*.config.*"],
+      "linter": {
+        "rules": {
+          "style": { "noDefaultExport": "off" }
+        }
+      }
+    }
+  ]
 }

@@ -2,11 +2,11 @@ import { Hono } from "hono";
 
 const app = new Hono();
 
-app.get("/", (c) => {
+app.get("/", c => {
   return c.text("Hello Hono!");
 });
 
-app.post("/save-file", async (c) => {
+app.post("/save-file", async c => {
   const { file_name } = c.req.query();
   const blob = await c.req.blob();
   const file = Bun.file(`./${file_name}`);
@@ -18,4 +18,5 @@ app.post("/save-file", async (c) => {
   return c.json({ ok: true });
 });
 
+// biome-ignore lint/style/noDefaultExport: for `bun run`
 export default app;
